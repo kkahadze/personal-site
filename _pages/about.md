@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='https://umd.edu/'>UMD</a>, <a href='https://wiki.umiacs.umd.edu/clip/index.php/Main_Page'>CLIP</a>
 
 profile:
   align: right
