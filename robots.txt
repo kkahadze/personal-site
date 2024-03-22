@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://kkahadze.com/sitemap.xml
+Sitemap: https://kahadze.com/sitemap.xml
