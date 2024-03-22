@@ -7,7 +7,7 @@ subtitle: <a href='https://umd.edu/'>UMD</a>, <a href='https://wiki.umiacs.umd.e
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     Tskhmori, Georgia
 
