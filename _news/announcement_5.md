@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Graduated from the University of Maryland with Bachelor's degrees in Computer Science and Linguistics!
+Graduated from the University of Maryland with Bachelor's degrees in Computer Science and Linguistics.
