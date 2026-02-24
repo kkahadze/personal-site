@@ -17,9 +17,10 @@ const translations = {
     aboutIntro1: 'I\'m Konstantine — a Developer Relations Engineer at <a href="https://promptfoo.dev" target="_blank" rel="noopener">Promptfoo</a>, where I help scale a community of over 300k open-source engineers building the framework for AI evaluation and security.',
     aboutIntro2: 'Before that, I was an AI Engineer at <a href="https://learnprompting.org" target="_blank" rel="noopener">Learn Prompting</a>, where I built AI-generated video pipelines and designed <a href="https://hackaprompt.com" target="_blank" rel="noopener">red-teaming competitions</a>.',
     aboutILike: "I Like",
-    aboutILikeText: "Lorem ipsum dolor sit amet \u2014 replace this with things you enjoy.",
+    aboutILikeText: '<li>Learning languages \u2014 <a href="/stats.html#languages">check my stats</a></li><li>Building AI side projects, like <a href="https://mkhedruli.com" target="_blank" rel="noopener">mkhedruli.com</a>, an LLM-powered translator for Mingrelian, a low-resource language with practically no parallel corpora</li><li>Travelling through <a href="https://en.wikipedia.org/wiki/Georgia_(country)" target="_blank" rel="noopener">Georgia</a></li><li>Film. In the summer of 2025, I got to produce a documentary short about the <a href="https://en.wikipedia.org/wiki/Bats_language" target="_blank" rel="noopener">Tsova-Tush language</a> with my friends <a href="https://www.lukeandnoahclarke.com/" target="_blank" rel="noopener">Noah and Luke Clarke</a></li>',
     statsTitle: "Stats",
     statsLanguages: "Languages",
+    statsCoding: "Coding",
   },
   ka: {
     firstName: "კონსტანტინე",
@@ -38,10 +39,11 @@ const translations = {
     aboutTitle: "ჩემ შესახებ",
     aboutIntro1: 'მე ვარ კონსტანტინე — დევრელის ინჟინერი <a href="https://promptfoo.dev" target="_blank" rel="noopener">Promptfoo</a>-ში, სადაც ვეხმარები 300 ათასზე მეტ ინჟინერს ჩვენი AI ხელსაწყოს გამოყენებაში, AI შეფასების და უსაფრთხოებისთვის.',
     aboutIntro2: 'მანამდე ვიყავი AI ინჟინერი <a href="https://learnprompting.org" target="_blank" rel="noopener">Learn Prompting</a>-ში, სადაც ვაშენებდი AI-თ გენერირებულ ვიდეო პაიპლაინებს და ვქმნიდი <a href="https://hackaprompt.com" target="_blank" rel="noopener">რედ-თიმინგის შეჯიბრებებს</a>.',
-    aboutILike: "მომწონს",
-    aboutILikeText: "Lorem ipsum dolor sit amet \u2014 ჩაანაცვლე ეს იმით, რაც მოგწონს.",
+    aboutILike: "მიყვარს",
+    aboutILikeText: '<li>ენების სწავლა \u2014 <a href="/stats.html#languages">ნახე ჩემი პროგრესი</a></li><li>AI პროექტების შექმნა, მაგალითად <a href="https://mkhedruli.com" target="_blank" rel="noopener">mkhedruli.com</a>, LLM-ზე დაფუძნებული მთარგმნელი მეგრულისთვის</li><li>მოგზაურობა <a href="https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D" target="_blank" rel="noopener">საქართველოში</a></li><li>კინო. 2025 წლის ზაფხულში მეგობრებთან, <a href="https://www.lukeandnoahclarke.com/" target="_blank" rel="noopener">ნოასთან და ლუქ კლარქთან</a> ერთად, მოკლემეტრაჟიანი ფილმი გადავიღეთ <a href="https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9D%E1%83%95%E1%83%90-%E1%83%97%E1%83%A3%E1%83%A8%E1%83%94%E1%83%91%E1%83%98" target="_blank" rel="noopener">თუშურ-ენაზე</a></li>',
     statsTitle: "სტატისტიკა",
     statsLanguages: "ენები",
+    statsCoding: "კოდირება",
   },
 };
 

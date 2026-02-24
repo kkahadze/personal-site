@@ -175,8 +175,44 @@ html, body {
 
 /* Main content */
 .content {
+  position: relative;
   padding-top: 10rem;
   text-align: center;
+  overflow: visible;
+}
+
+.content > *:not(.hero-glow) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 800px;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.15) 15%,
+    rgba(255, 255, 255, 0.05) 30%,
+    transparent 45%
+  );
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="dark"] .hero-glow {
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 15%,
+    rgba(255, 255, 255, 0.02) 30%,
+    transparent 45%
+  );
 }
 
 .name {
@@ -189,14 +225,16 @@ html, body {
 }
 
 .name a {
-  color: #7a0000;
+  color: #2a1a1a;
   text-decoration: none;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 2px 8px rgba(122, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .name a {
+  color: #ffffff;
   -webkit-text-stroke: 0;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
 }
 
 .name a:hover {
@@ -647,6 +685,22 @@ html, body {
   margin-bottom: 0;
 }
 
+.about-section ul {
+  padding-left: 1.25rem;
+  font-family: 'Source Sans 3', 'Noto Sans Georgian', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.about-section li {
+  margin-bottom: 0.75rem;
+}
+
+.about-section li:last-child {
+  margin-bottom: 0;
+}
+
 .about-section a {
   color: #7a0000;
   text-decoration: none;
@@ -759,6 +813,37 @@ html, body {
 .lang-tree-container svg {
   max-width: 100%;
   height: auto;
+}
+
+.github-chart-container {
+  text-align: center;
+}
+
+.github-chart {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.github-chart--dark {
+  display: none;
+  filter: invert(1) hue-rotate(180deg);
+}
+
+[data-theme="light"] .github-chart--light {
+  display: inline;
+}
+
+[data-theme="light"] .github-chart--dark {
+  display: none;
+}
+
+[data-theme="dark"] .github-chart--light {
+  display: none;
+}
+
+[data-theme="dark"] .github-chart--dark {
+  display: inline;
 }
 
 /* Texture overlay */
