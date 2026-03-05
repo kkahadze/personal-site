@@ -12,7 +12,7 @@
   --nav-bg: #ebe5d9;
   --text: #1d1d1f;
   --border: #d6cfc3;
-  --noise-opacity: 0.025;
+  --noise-opacity: 0.006;
   --link: #7a0000;
   --link-border: rgba(122, 0, 0, 0.3);
 }
@@ -22,7 +22,7 @@
   --nav-bg: #121212;
   --text: #e0ddd8;
   --border: #222222;
-  --noise-opacity: 0.015;
+  --noise-opacity: 0.004;
   --link: #ffffff;
   --link-border: rgba(255, 255, 255, 0.3);
 }
