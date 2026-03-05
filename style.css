@@ -687,13 +687,85 @@ html, body {
 }
 
 @media (max-width: 736px) {
+  /* Navbar */
+  .navbar {
+    padding: 0 0.75rem;
+  }
+
+  .logo {
+    height: 2.2rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+  }
+
+  .nav-controls {
+    gap: 0.3rem;
+  }
+
+  #theme-toggle,
+  #lang-btn {
+    font-size: 0.85rem;
+  }
+
+  #theme-toggle {
+    width: 2rem;
+    height: 1.8rem;
+  }
+
+  #lang-btn {
+    width: 2.5rem;
+    height: 1.8rem;
+  }
+
+  /* Homepage */
+  .content {
+    padding-top: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .profile-pic {
+    max-width: 220px;
+  }
+
+  .bio {
+    font-size: 1.15rem;
+    margin: 1rem auto 1.5rem;
+  }
+
+  .hero-glow {
+    width: 600px;
+    height: 400px;
+  }
+
+  .bottombar {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Resume */
   .resume-page {
-    padding: 5rem 1rem 3rem;
+    padding: 5rem 1rem 4rem;
   }
 
   .resume-nav {
-    gap: 1rem;
-    padding: 0.5rem 1rem;
+    gap: 0.6rem;
+    padding: 0.5rem 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .resume-nav-link {
+    font-size: 0.75rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.2rem;
   }
 
   .skill-button-container {
@@ -702,6 +774,35 @@ html, body {
 
   .skill-tags {
     justify-content: center;
+  }
+
+  /* About */
+  .about-page {
+    padding: 5rem 1rem 4rem;
+  }
+
+  .about-section p,
+  .about-section ul {
+    font-size: 1rem;
+  }
+
+  /* Stats */
+  .stats-page {
+    padding: 5rem 1rem 4rem;
+  }
+
+  .lang-tree-container {
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Contact */
+  .contact-page {
+    padding: 5rem 1rem 4rem;
+  }
+
+  .contact-socials {
+    gap: 1.5rem;
   }
 }
 
