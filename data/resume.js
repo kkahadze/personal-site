@@ -2,17 +2,23 @@ export const jobs = [
   {
     name: "Promptfoo",
     position: "Developer Relations Engineer",
+    positionKa: "დევრელის ინჟინერი",
     url: "https://promptfoo.dev",
     startDate: "2026-02",
     endDate: null,
     highlights: [
       "Scaling a community of over 300k open-source engineers",
-"Engineering the open-source framework for AI evaluation and red-teaming."
+      "Engineering the developer experience for the most widely adopted open-source LLM security platform",
+    ],
+    highlightsKa: [
+      "300 ათასზე მეტ ინჟინრის საზოგადოების გაფართოება",
+      "ყველაზე ფართოდ გავრცელებული LLM უსაფრთხოების პლატფორმის გაუმჯობესება",
     ],
   },
   {
     name: "Learn Prompting",
     position: "AI Engineer",
+    positionKa: "AI ინჟინერი",
     url: "https://learnprompting.org",
     startDate: "2024-08",
     endDate: "2026-01",
@@ -20,21 +26,46 @@ export const jobs = [
       "Built AI generated video pipelines for e-learning content, allowing the platform to scale to over 3 million users",
       'Designing <a href="https://hackaprompt.com" target="_blank" rel="noopener">AI red-teaming competitions.</a>',
     ],
+    highlightsKa: [
+      "AI-თ გენერირებული ვიდეო პაიპლაინების შექმნა, რამაც პლატფორმას 3 მილიონზე მეტ მომხმარებელამდე გაფართოების საშუალება მისცა",
+      '<a href="https://hackaprompt.com" target="_blank" rel="noopener">AI რედ-თიმინგის შეჯიბრებების</a> დიზაინი',
+    ],
   },
 ];
 
 export const degrees = [
   {
     school: "University of Maryland",
+    schoolKa: "მერილენდის უნივერსიტეტი",
     degree: "B.S. Computer Science",
+    degreeKa: "კომპიუტერული მეცნიერება (B.S.)",
     link: "https://umd.edu",
-    year: "2020 – 2024",
   },
   {
     school: "University of Maryland",
+    schoolKa: "მერილენდის უნივერსიტეტი",
     degree: "B.A. Linguistics",
+    degreeKa: "ლინგვისტიკა (B.A.)",
     link: "https://umd.edu",
-    year: "2020 – 2024",
+  },
+];
+
+export const publications = [
+  {
+    title: "The Prompt Report: A Systematic Survey of Prompting Techniques",
+    authors: "Sander Schulhoff, Michael Ilie, Nishant Balepur, Konstantine Kahadze, and 27 more authors",
+    venue: "arXiv",
+    date: "Dec 2024",
+    dateKa: "დეკ 2024",
+    url: "https://arxiv.org/abs/2406.06608",
+  },
+  {
+    title: "The Impacts of Subword Tokenization on Psycholinguistic Modeling",
+    authors: "Sathvik Nair, Konstantine Kahadze, and Philip Resnik",
+    venue: "MASC-SLL",
+    date: "May 2024",
+    dateKa: "მაი 2024",
+    url: null,
   },
 ];
 
@@ -47,9 +78,9 @@ export const categoryColors = [
 ];
 
 export const skills = [
-  { title: "JavaScript", competency: 5, category: ["Languages", "Web"] },
-  { title: "TypeScript", competency: 5, category: ["Languages", "Web"] },
   { title: "Python", competency: 5, category: ["Languages", "ML"] },
+  { title: "TypeScript", competency: 5, category: ["Languages", "Web"] },
+  { title: "JavaScript", competency: 5, category: ["Languages", "Web"] },
   { title: "React", competency: 5, category: ["Web"] },
   { title: "Node.js", competency: 5, category: ["Web"] },
   { title: "Docker", competency: 5, category: ["Infrastructure"] },

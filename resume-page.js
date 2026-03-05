@@ -1,30 +1,37 @@
 import { initTheme } from "./main.js";
 import { initI18n } from "./i18n.js";
-import { jobs, degrees, skills, categoryColors } from "./data/resume.js";
+import { jobs, degrees, publications, skills, categoryColors } from "./data/resume.js";
+
+function getLang() {
+  return document.documentElement.lang || "en";
+}
 
 function formatDate(dateStr) {
   const [year, month] = dateStr.split("-");
-  const months = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-  ];
+  const lang = getLang();
+  const monthsEn = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const monthsKa = ["იან", "თებ", "მარ", "აპრ", "მაი", "ივნ", "ივლ", "აგვ", "სექ", "ოქტ", "ნოე", "დეკ"];
+  const months = lang === "ka" ? monthsKa : monthsEn;
   return `${months[parseInt(month, 10) - 1]} ${year}`;
 }
 
 function renderJob(job) {
+  const lang = getLang();
   const start = formatDate(job.startDate);
-  const end = job.endDate ? formatDate(job.endDate) : "Present";
+  const end = job.endDate ? formatDate(job.endDate) : (lang === "ka" ? "დღემდე" : "Present");
+  const position = (lang === "ka" && job.positionKa) ? job.positionKa : job.position;
+  const highlights = (lang === "ka" && job.highlightsKa) ? job.highlightsKa : job.highlights;
   return `
     <article class="job-card">
       <header>
         <h3 class="job-title"><a href="${job.url}" target="_blank" rel="noopener">${job.name}</a></h3>
-        <p class="job-position">${job.position}</p>
+        <p class="job-position">${position}</p>
         <p class="job-daterange">${start} – ${end}</p>
       </header>
       ${job.summary ? `<p class="job-summary">${job.summary}</p>` : ""}
       ${
-        job.highlights
-          ? `<ul class="job-highlights">${job.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>`
+        highlights
+          ? `<ul class="job-highlights">${highlights.map((h) => `<li>${h}</li>`).join("")}</ul>`
           : ""
       }
     </article>
@@ -50,12 +57,42 @@ function renderEducation() {
       </div>
       ${degrees
         .map(
-          (deg) => `
+          (deg) => {
+            const lang = getLang();
+            const degree = (lang === "ka" && deg.degreeKa) ? deg.degreeKa : deg.degree;
+            const school = (lang === "ka" && deg.schoolKa) ? deg.schoolKa : deg.school;
+            return `
         <article class="degree-card">
-          <h3>${deg.degree}</h3>
-          <p class="degree-school"><a href="${deg.link}" target="_blank" rel="noopener">${deg.school}</a>, <time>${deg.year}</time></p>
+          <h3>${degree}</h3>
+          <p class="degree-school"><a href="${deg.link}" target="_blank" rel="noopener">${school}</a>${deg.year ? `, <time>${deg.year}</time>` : ''}</p>
         </article>
-      `
+      `;
+          }
+        )
+        .join("")}
+    </section>
+  `;
+}
+
+function renderPublications() {
+  return `
+    <section class="resume-section" id="publications">
+      <div class="section-title">
+        <h2 data-i18n="resumePublications">Publications</h2>
+      </div>
+      ${publications
+        .map(
+          (pub) => {
+            const lang = getLang();
+            const date = (lang === "ka" && pub.dateKa) ? pub.dateKa : pub.date;
+            return `
+        <article class="pub-card">
+          <h3 class="pub-title">${pub.url ? `<a href="${pub.url}" target="_blank" rel="noopener">${pub.title}</a>` : pub.title}</h3>
+          <p class="pub-authors">${pub.authors}</p>
+          <p class="pub-venue"><em>${pub.venue}</em>, ${date}</p>
+        </article>
+      `;
+          }
         )
         .join("")}
     </section>
@@ -132,7 +169,7 @@ function renderSkills() {
 
 function renderResume() {
   const container = document.getElementById("resume-content");
-  container.innerHTML = `${renderExperience()}${renderEducation()}${renderSkills()}`;
+  container.innerHTML = `${renderExperience()}${renderEducation()}${renderPublications()}${renderSkills()}`;
 }
 
 function initResumeNav() {
@@ -194,4 +231,15 @@ document.addEventListener("DOMContentLoaded", () => {
   initI18n();
   initResumeNav();
   initSkillFilters();
+
+  // Re-render when language changes
+  document.querySelectorAll(".lang-option").forEach((opt) => {
+    opt.addEventListener("click", () => {
+      requestAnimationFrame(() => {
+        renderResume();
+        initResumeNav();
+        initSkillFilters();
+      });
+    });
+  });
 });

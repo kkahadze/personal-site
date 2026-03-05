@@ -3,6 +3,7 @@ import { initI18n } from "./i18n.js";
 import { languageTrees, proficiencyColors } from "./data/languages.js";
 
 const NODE_W = 120;
+const ROOT_NODE_W = 160;
 const NODE_H = 36;
 const NODE_RX = 6;
 const GAP_X = 40;
@@ -14,11 +15,13 @@ const BAR_TOP = 8;
 
 function getThemeColors() {
   const style = getComputedStyle(document.documentElement);
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
   return {
     text: style.getPropertyValue("--text").trim(),
     bg: style.getPropertyValue("--bg").trim(),
-    nodeBg: style.getPropertyValue("--nav-bg").trim(),
-    border: style.getPropertyValue("--border").trim(),
+    nodeBg: isDark ? "#ffffff" : style.getPropertyValue("--nav-bg").trim(),
+    border: isDark ? "#ffffff" : style.getPropertyValue("--border").trim(),
+    nodeText: isDark ? "#7a0000" : null,
   };
 }
 
@@ -43,14 +46,16 @@ function layout(node, x, y) {
     cx = cl.x + cl.w + GAP_X;
   }
 
+  const isRoot = y === 0;
+  const nw = isRoot ? ROOT_NODE_W : NODE_W;
   const first = childLayouts[0];
   const last = childLayouts[childLayouts.length - 1];
   const firstCenter = (first.nodeX != null ? first.nodeX : first.x) + NODE_W / 2;
   const lastCenter = (last.nodeX != null ? last.nodeX : last.x) + NODE_W / 2;
-  const nodeX = (firstCenter + lastCenter) / 2 - NODE_W / 2;
+  const nodeX = (firstCenter + lastCenter) / 2 - nw / 2;
 
   const leftEdge = Math.min(nodeX, first.x);
-  const rightEdge = Math.max(nodeX + NODE_W, last.x + last.w);
+  const rightEdge = Math.max(nodeX + nw, last.x + last.w);
 
   let maxBottom = y + NODE_H;
   for (const cl of childLayouts) {
@@ -88,9 +93,10 @@ function renderTree(treeLayout, colors, offsetX, offsetY) {
   const isRoot = l.y === 0;
 
   // Node center
+  const nw = isRoot ? ROOT_NODE_W : NODE_W;
   const nx = (l.nodeX != null ? l.nodeX : l.x) + offsetX;
   const ny = l.y + offsetY;
-  const centerX = nx + NODE_W / 2;
+  const centerX = nx + nw / 2;
   const centerY = ny + NODE_H / 2;
 
   // Draw lines to children
@@ -107,13 +113,16 @@ function renderTree(treeLayout, colors, offsetX, offsetY) {
 
   // Draw node rectangle
   const fontSize = isRoot ? "14" : isLeaf ? "13" : "12";
-  const fontWeight = isRoot ? "800" : isLeaf ? "500" : "600";
+  const fontWeight = isRoot ? "800" : isLeaf ? "800" : "600";
   const opacity = (!isRoot && !isLeaf) ? "0.75" : "1";
   const hasLink = !!l.node.url;
 
   if (hasLink) svg += `<a href="${l.node.url}" target="_blank" rel="noopener" style="cursor:pointer">`;
-  svg += `<rect x="${nx}" y="${ny}" width="${NODE_W}" height="${NODE_H}" rx="${NODE_RX}" fill="${colors.nodeBg}" stroke="${colors.border}" stroke-width="1" opacity="${opacity}"/>`;
-  svg += `<text x="${centerX}" y="${centerY + 1}" text-anchor="middle" dominant-baseline="central" fill="${colors.text}" font-family="'Raleway','Noto Sans Georgian',sans-serif" font-size="${fontSize}" font-weight="${fontWeight}" opacity="${opacity}">${l.node.name}</text>`;
+  svg += `<rect x="${nx}" y="${ny}" width="${nw}" height="${NODE_H}" rx="${NODE_RX}" fill="${colors.nodeBg}" stroke="${colors.border}" stroke-width="1" opacity="${opacity}"/>`;
+  const textColor = colors.nodeText || colors.text;
+  const lang = document.documentElement.lang || "en";
+  const displayName = (lang === "ka" && l.node.nameKa) ? l.node.nameKa : l.node.name;
+  svg += `<text x="${centerX}" y="${centerY + 1}" text-anchor="middle" dominant-baseline="central" fill="${textColor}" font-family="'Raleway','Noto Sans Georgian',sans-serif" font-size="${fontSize}" font-weight="${fontWeight}" opacity="${opacity}">${displayName}</text>`;
   if (hasLink) svg += `</a>`;
 
   // Proficiency bar for leaf nodes
@@ -175,5 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Re-render on system theme change
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
     requestAnimationFrame(() => renderAllTrees());
+  });
+
+  // Re-render when language changes
+  document.querySelectorAll(".lang-option").forEach((opt) => {
+    opt.addEventListener("click", () => {
+      requestAnimationFrame(() => renderAllTrees());
+    });
   });
 });

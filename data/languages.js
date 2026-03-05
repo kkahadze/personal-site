@@ -1,37 +1,25 @@
 export const languageTrees = [
   {
-    name: "Indo-European",
+    name: "Indo-European", nameKa: "ინდოევროპული",
     url: "https://en.wikipedia.org/wiki/Indo-European_languages",
     children: [
-      {
-        name: "Slavic",
-        url: "https://en.wikipedia.org/wiki/Slavic_languages",
-        children: [{ name: "Russian", level: 3, url: "https://en.wikipedia.org/wiki/Russian_language" }],
-      },
-      {
-        name: "Romance",
-        url: "https://en.wikipedia.org/wiki/Romance_languages",
-        children: [{ name: "Spanish", level: 2, url: "https://en.wikipedia.org/wiki/Spanish_language" }],
-      },
-      {
-        name: "Germanic",
-        url: "https://en.wikipedia.org/wiki/Germanic_languages",
-        children: [{ name: "English", level: 4, url: "https://en.wikipedia.org/wiki/English_language" }],
-      },
+      { name: "Russian", nameKa: "რუსული", level: 3, url: "https://en.wikipedia.org/wiki/Russian_language" },
+      { name: "Spanish", nameKa: "ესპანური", level: 2, url: "https://en.wikipedia.org/wiki/Spanish_language" },
+      { name: "English", nameKa: "ინგლისური", level: 4, url: "https://en.wikipedia.org/wiki/English_language" },
     ],
   },
   {
-    name: "Kartvelian",
+    name: "Kartvelian", nameKa: "ქართველური",
     url: "https://en.wikipedia.org/wiki/Kartvelian_languages",
     children: [
-      { name: "Georgian", level: 4, url: "https://en.wikipedia.org/wiki/Georgian_language" },
-      { name: "Mingrelian", level: 1, url: "https://en.wikipedia.org/wiki/Mingrelian_language" },
+      { name: "Georgian", nameKa: "ქართული", level: 4, url: "https://en.wikipedia.org/wiki/Georgian_language" },
+      { name: "Mingrelian", nameKa: "მეგრული", level: 1, url: "https://en.wikipedia.org/wiki/Mingrelian_language" },
     ],
   },
   {
-    name: "Sino-Tibetan",
+    name: "Sino-Tibetan", nameKa: "სინო-ტიბეტური",
     url: "https://en.wikipedia.org/wiki/Sino-Tibetan_languages",
-    children: [{ name: "Chinese", level: 1, url: "https://en.wikipedia.org/wiki/Chinese_language" }],
+    children: [{ name: "Chinese", nameKa: "ჩინური", level: 1, url: "https://en.wikipedia.org/wiki/Chinese_language" }],
   },
 ];
 
