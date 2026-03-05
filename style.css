@@ -42,8 +42,8 @@ html, body {
   left: 0;
   right: 0;
   z-index: 10000;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: stretch;
   padding: 0 1.5rem;
   background-color: var(--nav-bg);
@@ -84,6 +84,7 @@ html, body {
 .nav-links {
   display: flex;
   align-items: stretch;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -102,6 +103,7 @@ html, body {
 .nav-controls {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
   padding: 0.8rem 0;
 }
