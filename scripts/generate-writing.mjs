@@ -1,13 +1,58 @@
-<!DOCTYPE html>
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import path from "node:path";
+
+import matter from "gray-matter";
+import { marked } from "marked";
+
+const rootDir = process.cwd();
+const contentDir = path.join(rootDir, "content", "writing");
+const generatedDir = path.join(rootDir, "generated");
+const routeRootDir = path.join(rootDir, "writing");
+const generatedDataFile = path.join(generatedDir, "writing-data.js");
+
+marked.setOptions({
+  headerIds: true,
+  mangle: false,
+});
+
+function ensureDir(dirPath) {
+  mkdirSync(dirPath, { recursive: true });
+}
+
+function formatIsoDate(dateValue) {
+  if (!dateValue) {
+    return "";
+  }
+
+  const date = new Date(dateValue);
+  if (Number.isNaN(date.getTime())) {
+    return "";
+  }
+
+  return date.toISOString().slice(0, 10);
+}
+
+function getPostFiles() {
+  if (!existsSync(contentDir)) {
+    return [];
+  }
+
+  return readdirSync(contentDir)
+    .filter((file) => file.endsWith(".md"))
+    .sort();
+}
+
+function getPostHtmlShell(slug, title) {
+  return `<!DOCTYPE html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Konstantine Kahadze</title>
+    <title>${title} - Konstantine Kahadze</title>
     <link rel="icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;800;900&family=Raleway:wght@800;900&family=Source+Sans+3:wght@400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;800;900&family=Raleway:wght@800;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
     <script>
       (function () {
@@ -19,6 +64,7 @@
             : "light");
         document.documentElement.setAttribute("data-theme", theme);
       })();
+      window.__WRITING_SLUG__ = ${JSON.stringify(slug)};
     </script>
   </head>
   <body>
@@ -26,13 +72,13 @@
       <a href="/" class="logo-link">
         <img src="/logo.png" alt="Home" class="logo" />
       </a>
-      <div class="nav-links">
-        <a href="/about.html" class="nav-link active" data-i18n="navAbout">About</a>
-        <a href="/resume.html" class="nav-link" data-i18n="navResume">Resume</a>
-        <a href="/writing/" class="nav-link" data-i18n="navWriting">Writing</a>
-        <a href="/stats.html" class="nav-link" data-i18n="navStats">Stats</a>
-        <a href="/contact.html" class="nav-link" data-i18n="navContact">Contact</a>
-      </div>
+	      <div class="nav-links">
+	        <a href="/about.html" class="nav-link" data-i18n="navAbout">About</a>
+	        <a href="/resume.html" class="nav-link" data-i18n="navResume">Resume</a>
+	        <a href="/writing/" class="nav-link active" data-i18n="navWriting">Writing</a>
+	        <a href="/stats.html" class="nav-link" data-i18n="navStats">Stats</a>
+	        <a href="/contact.html" class="nav-link" data-i18n="navContact">Contact</a>
+	      </div>
       <div class="nav-controls">
         <button id="theme-toggle" aria-label="Toggle theme">☾</button>
         <div class="lang-picker">
@@ -45,22 +91,8 @@
       </div>
     </nav>
 
-    <main class="about-page">
-      <header class="about-header">
-        <h1 class="about-title" data-i18n="aboutTitle"></h1>
-      </header>
-      <div class="about-content">
-        <section class="about-section">
-          <p data-i18n="aboutIntro1" data-i18n-html></p>
-          <p data-i18n="aboutIntro2" data-i18n-html></p>
-        </section>
-
-
-        <section class="about-section">
-          <h2 data-i18n="aboutILike"></h2>
-          <ul data-i18n="aboutILikeText" data-i18n-html></ul>
-        </section>
-      </div>
+    <main class="writing-post-page">
+      <article class="writing-post" id="writing-post"></article>
     </main>
 
     <footer class="bottombar" id="bottombar">
@@ -78,6 +110,55 @@
       </a>
     </footer>
 
-    <script type="module" src="/about-page.js"></script>
+    <script type="module" src="/writing-post-page.js"></script>
   </body>
 </html>
+`;
+}
+
+function writePostRoutes(posts) {
+  ensureDir(routeRootDir);
+
+  for (const entry of readdirSync(routeRootDir, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      rmSync(path.join(routeRootDir, entry.name), { recursive: true, force: true });
+    }
+  }
+
+  for (const post of posts) {
+    const postDir = path.join(routeRootDir, post.slug);
+    ensureDir(postDir);
+    writeFileSync(path.join(postDir, "index.html"), getPostHtmlShell(post.slug, post.title));
+  }
+}
+
+function main() {
+  ensureDir(generatedDir);
+  ensureDir(routeRootDir);
+  ensureDir(contentDir);
+
+  const posts = getPostFiles()
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, "");
+      const source = readFileSync(path.join(contentDir, fileName), "utf8");
+      const { data, content } = matter(source);
+      const title = typeof data.title === "string" ? data.title.trim() : slug;
+      const description = typeof data.description === "string" ? data.description.trim() : "";
+      const date = formatIsoDate(data.date);
+
+      return {
+        slug,
+        title,
+        description,
+        date,
+        contentHtml: marked.parse(content),
+      };
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  const fileContents = `export const posts = ${JSON.stringify(posts, null, 2)};\n`;
+  writeFileSync(generatedDataFile, fileContents);
+  writePostRoutes(posts);
+}
+
+main();

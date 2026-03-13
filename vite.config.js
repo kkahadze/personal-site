@@ -1,16 +1,40 @@
+import { readdirSync } from "fs";
 import { resolve } from "path";
 import { defineConfig } from "vite";
+
+function collectHtmlEntries(dir, entries = {}) {
+  const dirents = readdirSync(dir, { withFileTypes: true });
+
+  for (const dirent of dirents) {
+    if (dirent.name === "dist" || dirent.name === "node_modules" || dirent.name.startsWith(".")) {
+      continue;
+    }
+
+    const fullPath = resolve(dir, dirent.name);
+
+    if (dirent.isDirectory()) {
+      collectHtmlEntries(fullPath, entries);
+      continue;
+    }
+
+    if (!dirent.name.endsWith(".html")) {
+      continue;
+    }
+
+    const key = fullPath
+      .replace(`${resolve(__dirname, "")}/`, "")
+      .replace(/\.html$/, "")
+      .replace(/[\\/]/g, "-");
+    entries[key] = fullPath;
+  }
+
+  return entries;
+}
 
 export default defineConfig({
   build: {
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-        resume: resolve(__dirname, "resume.html"),
-        about: resolve(__dirname, "about.html"),
-        stats: resolve(__dirname, "stats.html"),
-        contact: resolve(__dirname, "contact.html"),
-      },
+      input: collectHtmlEntries(__dirname),
     },
   },
 });
