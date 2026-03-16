@@ -72,23 +72,37 @@ function getPostHtmlShell(slug, title) {
       <a href="/" class="logo-link">
         <img src="/logo.png" alt="Home" class="logo" />
       </a>
-	      <div class="nav-links">
-	        <a href="/about.html" class="nav-link" data-i18n="navAbout">About</a>
-	        <a href="/resume.html" class="nav-link" data-i18n="navResume">Resume</a>
-	        <a href="/writing/" class="nav-link active" data-i18n="navWriting">Writing</a>
-	        <a href="/stats.html" class="nav-link" data-i18n="navStats">Stats</a>
-	        <a href="/contact.html" class="nav-link" data-i18n="navContact">Contact</a>
-	      </div>
-      <div class="nav-controls">
-        <button id="theme-toggle" aria-label="Toggle theme">☾</button>
-        <div class="lang-picker">
-          <button id="lang-btn" aria-label="Select language">EN</button>
-          <div class="lang-dropdown" id="lang-dropdown">
-            <button class="lang-option" data-lang="en">English</button>
-            <button class="lang-option" data-lang="ka">ქართული</button>
+      <div class="nav-panel" id="nav-panel">
+        <div class="nav-links">
+          <a href="/about.html" class="nav-link" data-i18n="navAbout">About</a>
+          <a href="/resume.html" class="nav-link" data-i18n="navResume">Resume</a>
+          <a href="/writing/" class="nav-link active" data-i18n="navWriting">Writing</a>
+          <a href="/stats.html" class="nav-link" data-i18n="navStats">Stats</a>
+          <a href="/contact.html" class="nav-link" data-i18n="navContact">Contact</a>
+        </div>
+        <div class="nav-controls">
+          <button id="theme-toggle" aria-label="Toggle theme">☾</button>
+          <div class="lang-picker">
+            <button id="lang-btn" aria-label="Select language">EN</button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <button class="lang-option" data-lang="en">English</button>
+              <button class="lang-option" data-lang="ka">ქართული</button>
+            </div>
           </div>
         </div>
       </div>
+      <button
+        class="nav-menu-toggle"
+        id="nav-menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="nav-panel"
+        aria-expanded="false"
+      >
+        <span class="nav-menu-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-menu-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-menu-toggle-bar" aria-hidden="true"></span>
+      </button>
     </nav>
 
     <main class="writing-post-page">

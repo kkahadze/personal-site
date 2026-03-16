@@ -1,4 +1,4 @@
-import { initTheme } from "./main.js";
+import { initNavMenu, initTheme } from "./main.js";
 import { initI18n, translations } from "./i18n.js";
 import { externalWriting } from "./data/writing.js";
 import { posts } from "./generated/writing-data.js";
@@ -79,6 +79,7 @@ function renderWriting() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initNavMenu();
   initTheme();
   initI18n();
   renderWriting();

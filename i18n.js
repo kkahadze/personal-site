@@ -70,6 +70,11 @@ const langLabels = { en: "EN", ka: "ქა" };
 function setLanguage(lang) {
   document.documentElement.lang = lang;
   document.getElementById("lang-btn").textContent = langLabels[lang];
+  document.querySelectorAll(".lang-option").forEach((option) => {
+    const isActive = option.dataset.lang === lang;
+    option.classList.toggle("active", isActive);
+    option.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (translations[lang]?.[key]) {

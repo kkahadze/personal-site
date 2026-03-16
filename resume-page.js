@@ -1,4 +1,4 @@
-import { initTheme } from "./main.js";
+import { initNavMenu, initTheme } from "./main.js";
 import { initI18n } from "./i18n.js";
 import { jobs, degrees, publications, skills, categoryColors } from "./data/resume.js";
 
@@ -226,6 +226,7 @@ function initSkillFilters() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initNavMenu();
   initTheme();
   renderResume();
   initI18n();

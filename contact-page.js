@@ -1,7 +1,8 @@
-import { initTheme } from "./main.js";
+import { initNavMenu, initTheme } from "./main.js";
 import { initI18n } from "./i18n.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  initNavMenu();
   initTheme();
   initI18n();
 });

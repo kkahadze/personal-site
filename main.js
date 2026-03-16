@@ -10,6 +10,62 @@ export function applyTheme(theme) {
   btn.innerHTML = theme === "dark" ? '<span style="font-size:1.3em;position:relative;top:-2px">☀</span>' : "☾";
 }
 
+export function initNavMenu() {
+  const navbar = document.querySelector(".navbar");
+  const toggle = document.getElementById("nav-menu-toggle");
+  const panel = document.getElementById("nav-panel");
+
+  if (!navbar || !toggle || !panel) {
+    return;
+  }
+
+  const mobileQuery = window.matchMedia("(max-width: 736px)");
+
+  function closeMenu() {
+    navbar.classList.remove("navbar--menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  function openMenu() {
+    navbar.classList.add("navbar--menu-open");
+    toggle.setAttribute("aria-expanded", "true");
+  }
+
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = navbar.classList.contains("navbar--menu-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  panel.querySelectorAll(".nav-link, .lang-option").forEach((element) => {
+    element.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!navbar.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  mobileQuery.addEventListener("change", (event) => {
+    if (!event.matches) {
+      closeMenu();
+    }
+  });
+}
+
 export function initTheme() {
   const saved = localStorage.getItem("theme");
   applyTheme(saved || getSystemTheme());
@@ -29,4 +85,3 @@ export function initTheme() {
       }
     });
 }
-

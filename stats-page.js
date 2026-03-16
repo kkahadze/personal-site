@@ -1,4 +1,4 @@
-import { initTheme } from "./main.js";
+import { initNavMenu, initTheme } from "./main.js";
 import { initI18n } from "./i18n.js";
 import { languageTrees, proficiencyColors } from "./data/languages.js";
 
@@ -322,6 +322,7 @@ function renderAllTrees() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initNavMenu();
   initTheme();
   initI18n();
   renderAllTrees();
