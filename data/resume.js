@@ -1,11 +1,27 @@
 export const jobs = [
   {
+    name: "OpenAI",
+    position: "Developer Experience Engineer",
+    positionKa: "დევექსის ინჟინერი",
+    url: "https://openai.com",
+    startDate: "2026-03",
+    endDate: null,
+    highlights: [
+      "Helping developers build with OpenAI products and APIs",
+      "Creating technical resources that improve the developer experience",
+    ],
+    highlightsKa: [
+      "დეველოპერების დახმარება OpenAI-ის პროდუქტებით და API-ების აშენებაში",
+      "ტექნიკური რესურსების შექმნა, რომლებიც დეველოპერულ გამოცდილებას აუმჯობესებს",
+    ],
+  },
+  {
     name: "Promptfoo",
     position: "Developer Relations Engineer",
     positionKa: "დევრელის ინჟინერი",
     url: "https://promptfoo.dev",
     startDate: "2026-02",
-    endDate: null,
+    endDate: "2026-03",
     highlights: [
       "Scaling a community of over 300k open-source engineers",
       "Engineering the developer experience for the most widely adopted open-source LLM security platform",
