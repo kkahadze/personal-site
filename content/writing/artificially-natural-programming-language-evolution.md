@@ -4,6 +4,8 @@ description: "Fashion, language death, AI, and the forces shaping programming la
 date: "2026-04-11"
 ---
 
+## When Languages Go Out of Fashion
+
 Fashion is fascinating. One thing I’ve learned from studying dying languages, particularly [Tsova-Tush](https://en.wikipedia.org/wiki/Bats_language), and spending considerable time with the community, is that a language going out of fashion can have disastrous consequences. Yes, there are many factors that lead to language death, but it becoming ‘uncool’ to speak it is a considerable accelerant. Tsova-Tush went out of fashion, so many people stopped speaking it in their social circles, kids didn’t end up picking it up, and soon, thousands of years of history and tradition embedded within the language will be lost.
 
 Language goes in and out of fashion, clothes go in and out of fashion, and *code* goes in and out of fashion.
@@ -12,11 +14,15 @@ Language goes in and out of fashion, clothes go in and out of fashion, and *code
 
 Most of these things are just funny ways of moving away from AI idiosyncrasies. There’s nothing harmful or even potentially interesting about that. This is just evolution driven by moving away from some norm, which has always been an aspect of language evolution.
 
+## AI as a Force in Code
+
 What’s more interesting is that a similar evolution has begun with code. Over the past couple years, large language models have evolved into “agents”. This development means that these models aren’t just influencing language but also programming and tool evolution. Certain UIs are seen as ‘AI slop’ while [others](https://x.com/aidenybai/status/1895602640542973985?s=20) are being made specifically because they are hard for agents to generate.
 
 Coding agents will evolve to be able to create these ‘hard for AI’ UIs soon enough, driven by the cycle of training and running these agents. The agents in question are now the strongest ‘forces’ in programming that we’ve ever had. The power to control this evolution now falls into the hands of these AI providers. This has the power to convert programming from something that has been very much driven by intention and utility, to something that evolves a lot more like language, which is affected by many political and sociological forces.
 
 Just as the [Indo-Europeans](https://en.wikipedia.org/wiki/Indo-European_migrations) with their wheeled wagons wiped out countless languages and language families, coding agents have the potential to be a unifying and destructive force in the world of programming.
+
+## Path Dependence
 
 Early decisions we make as programmers become entrenched, forcing us not to consider alternatives in the future which can often be objectively better; JavaScript on the web is a familiar example. The paths taken cannot be reversed. Whether the language is programming or natural, we can only build upon the path we’ve taken.
 
