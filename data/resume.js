@@ -66,25 +66,6 @@ export const degrees = [
   },
 ];
 
-export const publications = [
-  {
-    title: "The Prompt Report: A Systematic Survey of Prompting Techniques",
-    authors: "Sander Schulhoff, Michael Ilie, Nishant Balepur, Konstantine Kahadze, and 27 more authors",
-    venue: "arXiv",
-    date: "Dec 2024",
-    dateKa: "დეკ 2024",
-    url: "https://arxiv.org/abs/2406.06608",
-  },
-  {
-    title: "The Impacts of Subword Tokenization on Psycholinguistic Modeling",
-    authors: "Sathvik Nair, Konstantine Kahadze, and Philip Resnik",
-    venue: "MASC-SLL",
-    date: "May 2024",
-    dateKa: "მაი 2024",
-    url: null,
-  },
-];
-
 export const categoryColors = [
   { name: "Languages", color: "#6968b3" },
   { name: "Web", color: "#37b1f5" },

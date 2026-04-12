@@ -1,6 +1,6 @@
 import { initNavMenu, initTheme } from "./main.js";
 import { initI18n } from "./i18n.js";
-import { jobs, degrees, publications, skills, categoryColors } from "./data/resume.js";
+import { jobs, degrees, skills, categoryColors } from "./data/resume.js";
 
 function getLang() {
   return document.documentElement.lang || "en";
@@ -65,31 +65,6 @@ function renderEducation() {
         <article class="degree-card">
           <h3>${degree}</h3>
           <p class="degree-school"><a href="${deg.link}" target="_blank" rel="noopener">${school}</a>${deg.year ? `, <time>${deg.year}</time>` : ''}</p>
-        </article>
-      `;
-          }
-        )
-        .join("")}
-    </section>
-  `;
-}
-
-function renderPublications() {
-  return `
-    <section class="resume-section" id="publications">
-      <div class="section-title">
-        <h2 data-i18n="resumePublications">Publications</h2>
-      </div>
-      ${publications
-        .map(
-          (pub) => {
-            const lang = getLang();
-            const date = (lang === "ka" && pub.dateKa) ? pub.dateKa : pub.date;
-            return `
-        <article class="pub-card">
-          <h3 class="pub-title">${pub.url ? `<a href="${pub.url}" target="_blank" rel="noopener">${pub.title}</a>` : pub.title}</h3>
-          <p class="pub-authors">${pub.authors}</p>
-          <p class="pub-venue"><em>${pub.venue}</em>, ${date}</p>
         </article>
       `;
           }
@@ -169,7 +144,7 @@ function renderSkills() {
 
 function renderResume() {
   const container = document.getElementById("resume-content");
-  container.innerHTML = `${renderExperience()}${renderEducation()}${renderPublications()}${renderSkills()}`;
+  container.innerHTML = `${renderExperience()}${renderEducation()}${renderSkills()}`;
 }
 
 function initResumeNav() {
