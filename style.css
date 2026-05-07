@@ -928,17 +928,6 @@ html, body {
     font-size: 1rem;
   }
 
-  /* Stats */
-  .stats-page {
-    padding: 5rem 1rem 4rem;
-  }
-
-  .lang-tree-container {
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-  }
-
   /* Contact */
   .contact-page {
     padding: 5rem 1rem 4rem;
@@ -1079,91 +1068,6 @@ html, body {
 
 .contact-socials a:hover {
   color: var(--link);
-}
-
-/* ========================================
-   STATS PAGE
-   ======================================== */
-
-.stats-page {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 6rem 1.5rem 4rem;
-}
-
-.stats-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.stats-title {
-  font-family: 'Raleway', 'Noto Sans Georgian', sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 900;
-  color: var(--text);
-}
-
-.stats-section {
-  margin-top: 2rem;
-}
-
-.stats-section .section-title h2 {
-  font-family: 'Raleway', 'Noto Sans Georgian', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text);
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid #7a0000;
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.lang-tree-container {
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
-  padding: 1rem 0;
-}
-
-.lang-tree-container svg {
-  max-width: 100%;
-  height: auto;
-}
-
-.github-chart-container {
-  text-align: center;
-}
-
-.github-chart {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-}
-
-[data-theme="light"] .github-chart--light {
-  filter: brightness(.80) contrast(1.2);
-}
-
-.github-chart--dark {
-  display: none;
-}
-
-[data-theme="light"] .github-chart--light {
-  display: inline;
-}
-
-[data-theme="light"] .github-chart--dark {
-  display: none;
-}
-
-[data-theme="dark"] .github-chart--light {
-  display: none;
-}
-
-[data-theme="dark"] .github-chart--dark {
-  display: inline;
 }
 
 /* ========================================
