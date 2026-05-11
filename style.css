@@ -61,7 +61,6 @@ html, body {
   width: fit-content;
 }
 
-.logo-link::after,
 .nav-link::after {
   content: '';
   position: absolute;
@@ -74,7 +73,6 @@ html, body {
   transition: transform 0.25s ease;
 }
 
-.logo-link:hover::after,
 .nav-link:hover::after {
   transform: scaleX(1);
 }
