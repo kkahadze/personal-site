@@ -85,7 +85,6 @@ function getPostHtmlShell(slug, title) {
         <div class="nav-links">
           <a href="/about.html" class="nav-link" data-i18n="navAbout">About</a>
           <a href="/resume.html" class="nav-link" data-i18n="navResume">Resume</a>
-          <a href="/writing/" class="nav-link active" data-i18n="navWriting">Writing</a>
           <a href="/contact.html" class="nav-link" data-i18n="navContact">Contact</a>
         </div>
         <div class="nav-controls">
