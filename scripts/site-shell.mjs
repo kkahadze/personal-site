@@ -1,7 +1,3 @@
-export const arrow =
-  '<svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-export const diagonal =
-  '<svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
 const routes = [
   ["about", "/about.html", "About"],
   ["resume", "/resume.html", "Resume"],
@@ -43,10 +39,9 @@ export function shell({
 </head>
 <body class="${page}-page-body">
   <a class="skip-link" href="#main" data-i18n="skipContent">Skip to content</a>
-  <div class="atmosphere" aria-hidden="true"><div class="light-field field-one"></div><div class="light-field field-two"></div><div class="light-field field-three"></div><div class="orbital orbital-one"></div><div class="orbital orbital-two"></div></div>
   <header class="site-header">
     <nav class="navbar glass-surface" aria-label="Main navigation">
-      <a href="/" class="logo-link" aria-label="Konstantine Kahadze — Home"><span class="monogram" aria-hidden="true">კ<span>.</span></span><span class="wordmark">kahadze<span>.com</span></span></a>
+      <a href="/" class="logo-link" aria-label="Konstantine Kahadze — Home">kahadze</a>
       <div class="nav-panel" id="nav-panel">
         <div class="nav-links">${routes.map(([id, href, label]) => `<a href="${href}" class="nav-link${page === id ? " active" : ""}" ${page === id ? 'aria-current="page"' : ""} data-i18n="nav${label}">${label}</a>`).join("")}</div>
         <div class="nav-controls">
@@ -59,12 +54,12 @@ export function shell({
   </header>
   ${content}
   <footer class="site-footer">
-    <a href="/" class="footer-signature">Konstantine Kahadze<span data-i18n="footerNote">A little corner of the internet.</span></a>
+
     <div class="footer-links" aria-label="Social links">
-      <a href="https://github.com/kkahadze" target="_blank" rel="noopener">GitHub ${diagonal}</a>
-      <a href="https://www.linkedin.com/in/kahadze/" target="_blank" rel="noopener">LinkedIn ${diagonal}</a>
-      <a href="https://scholar.google.com/citations?user=uhH7v3IAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar ${diagonal}</a>
-      <a href="https://x.com/codestantine" target="_blank" rel="noopener" aria-label="X (Twitter)">X ${diagonal}</a>
+      <a href="https://github.com/kkahadze" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kahadze/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=uhH7v3IAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://x.com/codestantine" target="_blank" rel="noopener" aria-label="X (Twitter)">X</a>
     </div>
   </footer>
   <script type="module" src="/${script}"></script>

@@ -201,36 +201,4 @@ export function initEnhancements() {
       }
     });
   });
-
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-  document.querySelectorAll(".glass-surface").forEach((surface) => {
-    let frame;
-    const reset = () => {
-      cancelAnimationFrame(frame);
-      surface.style.removeProperty("--pointer-x");
-      surface.style.removeProperty("--pointer-y");
-    };
-    surface.addEventListener(
-      "pointermove",
-      (event) => {
-        if (reducedMotion.matches || !finePointer.matches) return;
-        cancelAnimationFrame(frame);
-        frame = requestAnimationFrame(() => {
-          const rect = surface.getBoundingClientRect();
-          surface.style.setProperty(
-            "--pointer-x",
-            `${event.clientX - rect.left}px`,
-          );
-          surface.style.setProperty(
-            "--pointer-y",
-            `${event.clientY - rect.top}px`,
-          );
-        });
-      },
-      { passive: true },
-    );
-    surface.addEventListener("pointerleave", reset);
-    reducedMotion.addEventListener("change", reset);
-  });
 }

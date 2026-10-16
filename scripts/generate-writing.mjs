@@ -62,7 +62,7 @@ function getPostHtmlShell(slug, title) {
     page: "writing",
     script: "writing-post-page.js",
     extraScript: `window.__WRITING_SLUG__ = ${JSON.stringify(slug)};`,
-    content: `<main id="main" class="page-main writing-post-page"><a class="back-link" href="/writing/"><span aria-hidden="true">←</span> <span data-i18n="writingBack">Back to writing</span></a><article class="writing-post glass-surface" id="writing-post"></article></main>`,
+    content: `<main id="main" class="page-main writing-post-page"><a class="back-link" href="/writing/"><span aria-hidden="true">←</span> <span data-i18n="writingBack">Back to writing</span></a><article class="writing-post" id="writing-post"></article></main>`,
   });
 }
 

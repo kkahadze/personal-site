@@ -45,18 +45,10 @@
     <a class="skip-link" href="#main" data-i18n="skipContent"
       >Skip to content</a
     >
-    <div class="atmosphere" aria-hidden="true">
-      <div class="light-field field-one"></div>
-      <div class="light-field field-two"></div>
-      <div class="light-field field-three"></div>
-      <div class="orbital orbital-one"></div>
-      <div class="orbital orbital-two"></div>
-    </div>
     <header class="site-header">
       <nav class="navbar glass-surface" aria-label="Main navigation">
         <a href="/" class="logo-link" aria-label="Konstantine Kahadze — Home"
-          ><span class="monogram" aria-hidden="true">კ<span>.</span></span
-          ><span class="wordmark">kahadze<span>.com</span></span></a
+          >kahadze</a
         >
         <div class="nav-panel" id="nav-panel">
           <div class="nav-links">
@@ -124,117 +116,48 @@
 
     <main id="main" class="page-main contact-page">
       <header class="page-heading">
-        <p class="eyebrow" data-i18n="contactEyebrow">AN OPEN LINE</p>
-        <h1 data-i18n="contactTitle">Say hello.</h1>
-        <p class="page-intro" data-i18n="contactIntro">
-          An idea, a question, or just a hello.<br />I'd love to hear from you.
-        </p>
+        <h1 data-i18n="contactTitle">Contact</h1>
       </header>
-      <section class="contact-window glass-surface" aria-label="Email">
-        <div class="contact-symbol" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none">
-            <rect x="7" y="11" width="34" height="26" rx="7" />
-            <path d="m9 14 15 12 15-12" />
-          </svg>
-        </div>
-        <p class="eyebrow" data-i18n="emailLabel">REACH ME DIRECTLY</p>
-        <a href="mailto:konstantine@kahadze.com" class="contact-email"
-          >konstantine<span>@kahadze.com</span></a
-        >
-        <div class="contact-actions">
-          <a class="button button-primary" href="mailto:konstantine@kahadze.com"
-            ><span data-i18n="sendEmail">Write an email</span
-            ><svg
-              class="arrow-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M13 6l6 6-6 6" /></svg></a
-          ><button
-            class="button button-glass"
-            type="button"
-            data-copy-email="konstantine@kahadze.com"
-          >
-            <span data-i18n="copyEmail">Copy address</span
-            ><svg
-              class="arrow-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <rect x="8" y="8" width="12" height="12" rx="3" />
-              <path
-                d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"
-              />
-            </svg>
-          </button>
-        </div>
-        <p
-          id="copy-status"
-          class="copy-status"
-          role="status"
-          aria-live="polite"
-        ></p>
-      </section>
+      <a href="mailto:konstantine@kahadze.com" class="contact-email"
+        >konstantine@kahadze.com</a
+      ><button
+        type="button"
+        class="copy-button"
+        data-copy-email="konstantine@kahadze.com"
+      >
+        <span data-i18n="copyEmail">Copy address</span>
+      </button>
+      <p
+        id="copy-status"
+        class="copy-status"
+        role="status"
+        aria-live="polite"
+      ></p>
     </main>
     <footer class="site-footer">
-      <a href="/" class="footer-signature"
-        >Konstantine Kahadze<span data-i18n="footerNote"
-          >A little corner of the internet.</span
-        ></a
-      >
       <div class="footer-links" aria-label="Social links">
         <a href="https://github.com/kkahadze" target="_blank" rel="noopener"
-          >GitHub
-          <svg
-            class="arrow-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path d="M6 18 18 6M6 6h12v12" /></svg
-        ></a>
+          >GitHub</a
+        >
         <a
           href="https://www.linkedin.com/in/kahadze/"
           target="_blank"
           rel="noopener"
-          >LinkedIn
-          <svg
-            class="arrow-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path d="M6 18 18 6M6 6h12v12" /></svg
-        ></a>
+          >LinkedIn</a
+        >
         <a
           href="https://scholar.google.com/citations?user=uhH7v3IAAAAJ&amp;hl=en"
           target="_blank"
           rel="noopener"
-          >Scholar
-          <svg
-            class="arrow-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path d="M6 18 18 6M6 6h12v12" /></svg
-        ></a>
+          >Scholar</a
+        >
         <a
           href="https://x.com/codestantine"
           target="_blank"
           rel="noopener"
           aria-label="X (Twitter)"
-          >X
-          <svg
-            class="arrow-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path d="M6 18 18 6M6 6h12v12" /></svg
-        ></a>
+          >X</a
+        >
       </div>
     </footer>
     <script type="module" src="/contact-page.js"></script>
