@@ -14,6 +14,7 @@ function formatDate(dateString) {
   const lang = getLang();
   const locale = lang === "ka" ? "ka-GE" : "en-US";
   return new Intl.DateTimeFormat(locale, {
+    timeZone: "UTC",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -27,8 +28,10 @@ function renderPost() {
   const lang = getLang();
 
   if (!post) {
-    const fallbackTitle = translations[lang]?.writingMissingTitle || "Post not found";
-    const fallbackBody = translations[lang]?.writingMissingBody || "This post does not exist.";
+    const fallbackTitle =
+      translations[lang]?.writingMissingTitle || "Post not found";
+    const fallbackBody =
+      translations[lang]?.writingMissingBody || "This post does not exist.";
     container.innerHTML = `
       <header class="writing-post-header">
         <h1 class="writing-post-title">${fallbackTitle}</h1>
