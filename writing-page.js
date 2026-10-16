@@ -15,6 +15,7 @@ function formatDate(dateString) {
   const lang = getLang();
   const locale = lang === "ka" ? "ka-GE" : "en-US";
   return new Intl.DateTimeFormat(locale, {
+    timeZone: "UTC",
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -22,9 +23,10 @@ function formatDate(dateString) {
 }
 
 function renderItem(item, showDate = true) {
-  const dateHtml = showDate && item.date
-    ? `<time class="writing-item-date" datetime="${item.date}">${formatDate(item.date)}</time>`
-    : "";
+  const dateHtml =
+    showDate && item.date
+      ? `<time class="writing-item-date" datetime="${item.date}">${formatDate(item.date)}</time>`
+      : "";
   const markerHtml = item.isExternal
     ? `<span class="writing-item-marker" aria-hidden="true">↗</span>`
     : "";
