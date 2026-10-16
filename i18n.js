@@ -11,12 +11,12 @@ const translations = {
     navResume: "Resume",
     navWriting: "Writing",
     navContact: "Contact",
-    resumeTitle: "Experience.",
+    resumeTitle: "Resume",
     resumeExperience: "Experience",
     resumeEducation: "Education",
     resumeSkills: "Skills",
-    contactTitle: "Say hello.",
-    aboutTitle: "About me.",
+    contactTitle: "Contact",
+    aboutTitle: "About",
     aboutIntro1:
       'I\'m Konstantine, a Developer Experience Engineer at <a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a>, where I help developers build with OpenAI products and APIs.',
     aboutIntro2:
@@ -24,7 +24,7 @@ const translations = {
     aboutIntro3:
       "In my free time, I like to learn languages, spend time outside and build AI projects.",
     aboutBtn: "About me",
-    writingTitle: "Writing.",
+    writingTitle: "Writing",
     writingIntro: "Notes on AI, language,\nand the things in between.",
     writingGuides: "Guides",
     writingBack: "Back to writing",
